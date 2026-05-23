@@ -11,9 +11,9 @@ function Particles() {
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
     const sizes = new Float32Array(count);
-    const c1 = new THREE.Color('#00d4ff');
-    const c2 = new THREE.Color('#7b2fff');
-    const c3 = new THREE.Color('#ff2fff');
+    const c1 = new THREE.Color('#b8ff3c');
+    const c2 = new THREE.Color('#6c6cff');
+    const c3 = new THREE.Color('#78ff9a');
 
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;
@@ -77,7 +77,7 @@ function Grid() {
         const points = [new THREE.Vector3(...(line.start as [number,number,number])), new THREE.Vector3(...(line.end as [number,number,number]))];
         const geo = new THREE.BufferGeometry().setFromPoints(points);
         return (
-          <primitive key={i} object={new THREE.Line(geo, new THREE.LineBasicMaterial({ color: "#00d4ff", transparent: true, opacity: 0.06 }))} />
+          <primitive key={i} object={new THREE.Line(geo, new THREE.LineBasicMaterial({ color: "#b8ff3c", transparent: true, opacity: 0.06 }))} />
         );
       })}
     </group>
@@ -96,27 +96,27 @@ function FloatingShapes() {
       <Float speed={1.5} rotationIntensity={1.5} floatIntensity={2}>
         <mesh position={[-3.5, 1.5, -2]}>
           <octahedronGeometry args={[0.8, 0]} />
-          <meshStandardMaterial color="#00d4ff" emissive="#00d4ff" emissiveIntensity={1.2} wireframe transparent opacity={0.8} />
+          <meshStandardMaterial color="#b8ff3c" emissive="#b8ff3c" emissiveIntensity={1.2} wireframe transparent opacity={0.8} />
         </mesh>
       </Float>
 
       <Float speed={2} rotationIntensity={1} floatIntensity={1.5}>
         <mesh position={[3.5, -1, -3]}>
           <torusKnotGeometry args={[0.6, 0.18, 128, 16]} />
-          <meshStandardMaterial color="#7b2fff" emissive="#7b2fff" emissiveIntensity={1} wireframe transparent opacity={0.7} />
+          <meshStandardMaterial color="#6c6cff" emissive="#6c6cff" emissiveIntensity={1} wireframe transparent opacity={0.7} />
         </mesh>
       </Float>
 
       <Float speed={2.5} rotationIntensity={2} floatIntensity={3}>
         <mesh position={[1, 3, -4]}>
           <icosahedronGeometry args={[0.7, 1]} />
-          <meshStandardMaterial color="#ff2fff" emissive="#ff2fff" emissiveIntensity={0.8} wireframe transparent opacity={0.6} />
+          <meshStandardMaterial color="#78ff9a" emissive="#78ff9a" emissiveIntensity={0.8} wireframe transparent opacity={0.6} />
         </mesh>
       </Float>
 
       <Float speed={1.8} rotationIntensity={0.8} floatIntensity={2}>
         <Sphere position={[-2, -2.5, -3]} args={[0.5, 32, 32]}>
-          <MeshDistortMaterial color="#00d4ff" emissive="#00d4ff" emissiveIntensity={0.6} distort={0.5} speed={3} transparent opacity={0.5} />
+          <MeshDistortMaterial color="#b8ff3c" emissive="#b8ff3c" emissiveIntensity={0.6} distort={0.5} speed={3} transparent opacity={0.5} />
         </Sphere>
       </Float>
 
@@ -130,7 +130,7 @@ function FloatingShapes() {
       <Float speed={3} rotationIntensity={2} floatIntensity={2}>
         <mesh position={[-4, 0, -6]}>
           <tetrahedronGeometry args={[0.5, 0]} />
-          <meshStandardMaterial color="#7b2fff" emissive="#7b2fff" emissiveIntensity={1} wireframe transparent opacity={0.7} />
+          <meshStandardMaterial color="#6c6cff" emissive="#6c6cff" emissiveIntensity={1} wireframe transparent opacity={0.7} />
         </mesh>
       </Float>
     </group>
@@ -153,15 +153,15 @@ function EnergyRings() {
     <group position={[0, 0, -2]}>
       <mesh ref={ring1}>
         <torusGeometry args={[2.5, 0.008, 16, 100]} />
-        <meshBasicMaterial color="#00d4ff" transparent opacity={0.3} />
+        <meshBasicMaterial color="#b8ff3c" transparent opacity={0.3} />
       </mesh>
       <mesh ref={ring2}>
         <torusGeometry args={[3.2, 0.006, 16, 100]} />
-        <meshBasicMaterial color="#7b2fff" transparent opacity={0.2} />
+        <meshBasicMaterial color="#6c6cff" transparent opacity={0.2} />
       </mesh>
       <mesh ref={ring3}>
         <torusGeometry args={[4, 0.005, 16, 100]} />
-        <meshBasicMaterial color="#ff2fff" transparent opacity={0.15} />
+        <meshBasicMaterial color="#78ff9a" transparent opacity={0.15} />
       </mesh>
     </group>
   );
@@ -207,9 +207,9 @@ function Lights() {
   return (
     <>
       <ambientLight intensity={0.15} />
-      <pointLight ref={light1} position={[5, 5, 3]} intensity={2} color="#00d4ff" />
-      <pointLight ref={light2} position={[-5, -3, -5]} intensity={2} color="#7b2fff" />
-      <pointLight position={[0, 5, -5]} intensity={1} color="#ff2fff" />
+      <pointLight ref={light1} position={[5, 5, 3]} intensity={2} color="#b8ff3c" />
+      <pointLight ref={light2} position={[-5, -3, -5]} intensity={2} color="#6c6cff" />
+      <pointLight position={[0, 5, -5]} intensity={1} color="#78ff9a" />
       <pointLight position={[0, -5, 5]} intensity={0.5} color="#00ffaa" />
     </>
   );
@@ -219,7 +219,7 @@ export default function HeroScene() {
   return (
     <div className="absolute inset-0 z-0">
       <Canvas camera={{ position: [0, 0, 7], fov: 55 }} dpr={[1, 1.5]} gl={{ antialias: true, alpha: true }}>
-        <fog attach="fog" args={['#0a0a0f', 10, 30]} />
+        <fog attach="fog" args={['#060608', 10, 30]} />
         <Lights />
         <MouseCamera />
         <Particles />
